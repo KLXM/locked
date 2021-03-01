@@ -1,4 +1,6 @@
 <?php
+
+
 // Add status for locked articles and categories
 
 if (rex::isBackend()) {
@@ -13,7 +15,18 @@ if (rex::isBackend()) {
 // redirect to not foundArticle if not logged in or preview parameter not set. 
 
 if (rex::isFrontend()) {
+
+
     rex_extension::register('PACKAGES_INCLUDED', function () {
+
+        if (rex_category::getCurrent() != null) {
+            $cat = rex_category::getCurrent();
+            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request(preview, string, '') == '') {
+
+                rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
+            }
+        }
+
         if (rex_article::getCurrent() instanceof rex_article && rex_request(preview, string, '') == '' && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
             rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
         }
@@ -21,7 +34,8 @@ if (rex::isFrontend()) {
 }
 
 if (rex::isBackend()) {
-    if (rex_article::getCurrent()->getValue('status') == 2) {
+    $cat = rex_category::getCurrent();
+    if (rex_article::getCurrent()->getValue('status') == 2 || $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
         rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', function (rex_extension_point $ep) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
