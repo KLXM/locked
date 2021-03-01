@@ -7,6 +7,9 @@ if (rex::isBackend()) {
         $ep->setSubject($subject);
         return $ep->getSubject();
     });
+        if (rex_addon::get('quick_navigation')->isAvailable()) {
+        rex_view::addCssFile($this->getAssetsUrl('accessdenied_quicknavi.css'));
+    }
 }
 
 // redirect to not foundArticle if not logged in or preview parameter not set. 
