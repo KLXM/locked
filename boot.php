@@ -1,8 +1,5 @@
 <?php
-
-
 // Add status for locked articles and categories
-
 if (rex::isBackend()) {
     rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], function (rex_extension_point $ep) {
         $subject = $ep->getSubject();
@@ -13,7 +10,6 @@ if (rex::isBackend()) {
 }
 
 // redirect to not foundArticle if not logged in or preview parameter not set. 
-
 if (rex::isFrontend()) {
 
 
@@ -21,13 +17,13 @@ if (rex::isFrontend()) {
 
         if (rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
-            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request(preview, string, '') == '') {
+            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request(preview, string, '')  != 'id-' . rex_article::getCurrent()->getId()) {
 
                 rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
             }
         }
 
-        if (rex_article::getCurrent() instanceof rex_article && rex_request(preview, string, '') == '' && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
+        if (rex_article::getCurrent() instanceof rex_article && rex_request(preview, string, '') != 'id-' . rex_article::getCurrent()->getId() && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
             rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
         }
     }, rex_extension::LATE);
@@ -40,7 +36,7 @@ if (rex::isBackend()) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
 
-            $panel = '<div class="alert alert-info">Sie können folgenden Link teilen: <br><strong>' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=ok</strong></div>';
+            $panel = '<div class="alert alert-info">Sie können folgenden Link teilen: <br><strong>' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=id-' . rex_article::getCurrent()->getId() . '</strong></div>';
 
             $fragment = new rex_fragment();
             $fragment->setVar('title', '<i class="fa fa-exclamation-triangle" style="color: red"></i> Dieser Artikel ist gesperrt', false);
