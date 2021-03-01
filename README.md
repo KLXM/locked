@@ -8,3 +8,9 @@
 Gesperrte Seiten leiten automatisch auf den not found Artikel um, wenn sie nicht mit Preview-Parameter oder aus dem Backend heraus aufgerufen werden. 
 
 > Inspiriert vom accessdenied AddOn und Anregungen aus der Community. 
+
+## Geplant
+
+- Überführung in das Maintenance AddOn (FOR) 
+- Optionale Passworteingabe
+
