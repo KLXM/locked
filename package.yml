@@ -1,7 +1,7 @@
 package: locked
 version: '1.0.0-dev'
-author: 'Thomas Skerbis'
-supportpage: https://github.com/skerbis/locked
+author: 'Thomad Skerbis'
+supportpage: https://github.com/KLXM/locked
 requires:
     packages:
         structure/content: '^2.1.0'
