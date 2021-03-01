@@ -5,7 +5,7 @@ $package = rex_addon::get('locked');
 if (rex::isBackend()) {
     rex_extension::register(['ART_STATUS_TYPES', 'CAT_STATUS_TYPES'], function (rex_extension_point $ep) {
         $subject = $ep->getSubject();
-        $subject[] = [$package->i18n('quicknavi_ignoreoffline'), 'rex-offline', 'fa fa-exclamation-triangle'];
+        $subject[] = [$package->i18n('locked_locked'), 'rex-offline', 'fa fa-exclamation-triangle'];
         $ep->setSubject($subject);
         return $ep->getSubject();
     });
