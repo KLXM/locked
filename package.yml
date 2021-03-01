@@ -1,5 +1,5 @@
 package: locked
-version: '0.0.2'
+version: '1.0.0-dev'
 author: 'Thomas Skerbis'
 supportpage: https://github.com/skerbis/locked
 requires:
