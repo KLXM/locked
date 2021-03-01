@@ -1,0 +1,24 @@
+package: lock_and_share
+version: '0.0.1'
+author: 'Thomas Skerbis'
+supportpage: https://github.com/FriendsOfREDAXO/quick_navigation
+perm: quick_navigation[]
+
+page:
+    title: translate:quicknavi_title
+    icon: rex-icon fa-star
+    perm: quick_navigation[settings]
+    subpages:
+        config: { title: 'translate:quicknavi_config' }
+        help:  
+             { title: 'translate:quicknavi_help',  icon: rex-icon fa-question-circle, subPath: README.md} 
+requires:
+    packages:
+        structure/content: '^2.1.0'
+    redaxo: '^5.12.0-dev'
+    php:
+        version: '>=7, <9'
+conflicts:
+    packages:
+        yform: '<2.0.0'
+        watson: '<2.1.0'
