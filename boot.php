@@ -8,7 +8,7 @@ if (rex::isBackend()) {
         return $ep->getSubject();
     });
         if (rex_addon::get('quick_navigation')->isAvailable()) {
-        rex_view::addCssFile($this->getAssetsUrl('accessdenied_quicknavi.css'));
+        rex_view::addCssFile($this->getAssetsUrl('locked_qn.css'));
     }
 }
 
