@@ -20,7 +20,7 @@ if (rex::isFrontend()) {
 
         if (rex_category::getCurrent() != null) {
             $cat = rex_category::getCurrent();
-            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request(preview, string, '')  != 'id-' . rex_article::getCurrent()->getId()) {
+            if ($cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')) && rex_request(preview, string, '')  != 'id-' . rex_article::getCurrent()->getId()  && !rex_backend_login::hasSession()) {
 
                 rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
             }
