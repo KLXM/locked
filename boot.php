@@ -8,8 +8,8 @@ if (rex::isBackend()) {
         return $ep->getSubject();
     });
         if (rex_addon::get('quick_navigation')->isAvailable()) {
-        rex_view::addCssFile($this->getAssetsUrl('locked_qn.css'));
-    }
+        rex_view::addCssFile($this->getAssetsUrl('locked_gn.css'));
+      }
 }
 
 // redirect to not foundArticle if not logged in or preview parameter not set. 
