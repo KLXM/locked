@@ -7,8 +7,9 @@
 
 Gesperrte Seiten leiten automatisch auf den not found Artikel um, wenn sie nicht mit Preview-Parameter oder aus dem Backend heraus aufgerufen werden. 
 
-> Inspiriert vom accessdenied AddOn und Anregungen aus der Community. 
+> Inspiriert vom accessdenied AddOn und Anregungen aus der Community und natürlich unserer Kundschaft.  
 
-## Geplant
+## Alternative 
 
-Überführung in das Accessdenied-AddOn oder Maintenance
+[FOR Access denied AddOn](https://github.com/FriendsOfREDAXO/accessdenied): Sperrt einzelne Seite 
+
