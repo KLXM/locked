@@ -33,8 +33,13 @@ if (rex::isFrontend()) {
 }
 
 if (rex::isBackend()) {
+    $catclocked = false;
     $cat = rex_category::getCurrent();
-    if (rex_article::getCurrent()->getValue('status') == 2 || $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status'))) {
+    if ($cat && $cat->getClosest(fn (rex_category $cat) => 2 == $cat->getValue('status')))
+    {
+        $catclocked = true; 
+    } 
+    if (rex_article::getCurrent()->getValue('status') == 2 || true == $catclocked) {
         rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', function (rex_extension_point $ep) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
