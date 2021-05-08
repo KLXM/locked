@@ -14,8 +14,6 @@ if (rex::isBackend()) {
 
 // redirect to not foundArticle if not logged in or preview parameter not set. 
 if (rex::isFrontend()) {
-
-
     rex_extension::register('PACKAGES_INCLUDED', function () {
 
         if (rex_category::getCurrent() != null) {
@@ -25,7 +23,6 @@ if (rex::isFrontend()) {
                 rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
             }
         }
-
         if (rex_article::getCurrent() instanceof rex_article && rex_request('preview', 'string', '') != 'id-' . rex_article::getCurrent()->getId() && rex_article::getCurrent()->getValue('status') == 2 && !rex_backend_login::hasSession()) {
             rex_redirect(rex_article::getNotfoundArticleId(), rex_clang::getCurrentId());
         }
