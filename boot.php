@@ -44,10 +44,10 @@ if (rex::isBackend()) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
 
-            $panel = '<div class="alert alert-info">'.rex_i18n::msg('share').'<br><strong>' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=id-' . rex_article::getCurrent()->getId() . '</strong></div>';
+            $panel = '<div class="alert alert-info">'.rex_i18n::msg('locked_share').'<br><strong>' . rex_yrewrite::getFullUrlByArticleId($params["article_id"]) . '?preview=id-' . rex_article::getCurrent()->getId() . '</strong></div>';
 
             $fragment = new rex_fragment();
-            $fragment->setVar('title', '<i class="fa fa-exclamation-triangle" style="color: red"></i> '.rex_i18n::msg('info'), false);
+            $fragment->setVar('title', '<i class="fa fa-exclamation-triangle" style="color: red"></i> '.rex_i18n::msg('locked_info'), false);
             $fragment->setVar('body', $panel, false);
             $fragment->setVar('article_id', $params["article_id"], false);
 
@@ -59,3 +59,4 @@ if (rex::isBackend()) {
         });
     }
 }
+
