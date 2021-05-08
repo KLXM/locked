@@ -1,5 +1,7 @@
 # REDAXO Artikel und Kategorien sperren und teilen. 
 
+![Screenshot](https://github.com/KLXM/locked/blob/assets/screenshot.png?raw=true)
+
 - Dieses Utility-AddOn ermöglicht das Sperren von Artikeln und Sharing per Preview-Link. 
 - Es ändert auch die Bezeichnungen für online / offline auf online / versteckt(in Navigation) und gesperrt
 - In den Artikeln wird bei gesperrtem Status ein Panel angezeigt, in dem ein Sharing-Link generiert wird. 
