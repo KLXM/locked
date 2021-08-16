@@ -1,1 +1,5 @@
-
+status_online = online
+status_offline =  hidden
+locked_locked = locked
+locked_info = This article is locked
+locked_share = You may share the link below:
