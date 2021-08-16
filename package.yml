@@ -1,5 +1,5 @@
 package: locked
-version: '1.0.1'
+version: '1.0.2'
 author: 'Thomad Skerbis'
 supportpage: https://github.com/KLXM/locked
 requires:
