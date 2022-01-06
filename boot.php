@@ -36,7 +36,8 @@ if (rex::isBackend()) {
     {
         $catclocked = true; 
     } 
-    if (rex_article::getCurrent()->getValue('status') == 2 || true == $catclocked) {
+    $art = rex_article::getCurrent();
+    if (($art && $art->getValue('status') == 2) || true == $catclocked) {
         rex_extension::register('STRUCTURE_CONTENT_SIDEBAR', function (rex_extension_point $ep) {
             $params = $ep->getParams();
             $subject = $ep->getSubject();
